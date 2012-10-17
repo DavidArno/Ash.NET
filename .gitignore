@@ -1,0 +1,7 @@
+/_NCrunch_Ash/
+/_ReSharper.Ash/
+/_NCrunch_Ash.NET/
+/_ReSharper.Ash.NET/
+/*.suo
+/*.NET.ncrunchsolution.user
+/.nuget/
