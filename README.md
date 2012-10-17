@@ -10,4 +10,6 @@ Please note that this is an early push of the code: it absolutely is not yet fit
 3. Taking further advantage of C#'s features to improve the code
 4. Porting Richard's Asteroid's game across to .NET.
 
-Currently the code is in the form of a VS2012 solution. This should work in VS2010 too, but I haven't confirmed this. You will also need NuGet installed as it handles fetching the NUnit framework needed by the tests.
+Currently the code is in the form of a VS2012 solution. This should work in VS2010 too, but I haven't 
+confirmed this. You will also need NuGet installed as it handles fetching the NUnit framework needed by the 
+tests.

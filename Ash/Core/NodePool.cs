@@ -12,6 +12,11 @@ namespace Net.RichardLord.Ash.Core
 		private Node _cacheTail;
 	    private Type _nodeType;
 
+        public NodePool(Type nodeType)
+        {
+            _nodeType = nodeType;
+        }
+
 		internal Node Get()
 		{
 			if (_tail != null)

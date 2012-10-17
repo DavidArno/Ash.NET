@@ -30,7 +30,7 @@ namespace Net.RichardLord.Ash.Core
 
 		private void Init()
 		{
-		    _nodePool = new NodePool();
+		    _nodePool = new NodePool(_nodeType);
 			_nodes = new NodeList();
 		    _entities = new Dictionary<Entity, Node>();
 
@@ -39,7 +39,7 @@ namespace Net.RichardLord.Ash.Core
             {
                 if (!(property.Name == "Entity" || property.Name == "Previous" || property.Name == "Next"))
                 {
-                    _components.Add(property.GetType(), property.Name);
+                    _components.Add(property.PropertyType, property.Name);
                 }
             }
 		}
