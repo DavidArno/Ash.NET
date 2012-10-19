@@ -136,6 +136,11 @@ namespace Net.RichardLord.Ash.Core
          * 
          * @param nodeClass The type of the node class if the list to be released.
          */
+        public void ReleaseNodeList<T>()
+        {
+            ReleaseNodeList(typeof(T));
+        }
+
         public void ReleaseNodeList(Type nodeClass)
         {
             if(_families.ContainsKey(nodeClass))

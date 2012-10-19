@@ -110,6 +110,11 @@ namespace Net.RichardLord.Ash.Core
         /// </summary>
         /// <param name="componentClass">The class of the component to be removed.</param>
         /// <returns>The component, or null if the component doesn't exist in the entity.</returns>        
+        public object Remove<T>()
+        {
+            return Remove(typeof(T));
+        }
+
         public object Remove(Type componentClass)
         {
             if (_components.ContainsKey(componentClass))
