@@ -52,6 +52,7 @@
     <Compile Include="Core\GameTests.cs" />
     <Compile Include="Core\MockFamily.cs" />
     <Compile Include="Core\MockSystem.cs" />
+    <Compile Include="Core\NodeListTests.cs" />
     <Compile Include="Core\SystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

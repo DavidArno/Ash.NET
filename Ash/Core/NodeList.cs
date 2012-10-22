@@ -47,7 +47,7 @@ namespace Net.RichardLord.Ash.Core
 
 		internal void Add(Node node)
 		{
-			if(Head == null)
+			if (Head == null)
 			{
 				Head = Tail = node;
 				node.Next = node.Previous = null;
