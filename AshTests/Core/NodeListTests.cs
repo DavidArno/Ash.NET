@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-
 using NUnit.Framework;
 using Net.RichardLord.Ash.Core;
 
@@ -32,7 +29,7 @@ namespace Net.RichardLord.AshTests.Core
 		{
             var eventFired = false;
 			var mockNode = new MockNode();
-			_nodes.NodeAdded += (node) => eventFired = true;
+			_nodes.NodeAdded += delegate { eventFired = true; };
 			_nodes.Add(mockNode);
             Assert.IsTrue(eventFired);
 		}
@@ -43,7 +40,7 @@ namespace Net.RichardLord.AshTests.Core
             var eventFired = false;
             var mockNode = new MockNode();
             _nodes.Add(mockNode);
-            _nodes.NodeRemoved += (node) => eventFired = true;
+            _nodes.NodeRemoved += delegate { eventFired = true; };
             _nodes.Remove(mockNode);
             Assert.IsTrue(eventFired);
         }
@@ -116,26 +113,26 @@ namespace Net.RichardLord.AshTests.Core
         }
 
         [Test]
-        public void componentAddedSignalContainsCorrectParameters()
+        public void ComponentAddedSignalContainsCorrectParameters()
         {
-            Node signalNode = null;;
-            _nodes.NodeAdded += (node) => signalNode = node;
+            Node signalNode = null;
+            _nodes.NodeAdded += node => signalNode = node;
             _nodes.Add(_tempNode);
             Assert.AreSame(_tempNode, signalNode);
         }
 		
         [Test]
-        public void componentRemovedSignalContainsCorrectParameters()
+        public void ComponentRemovedSignalContainsCorrectParameters()
         {
             Node signalNode = null;
             _nodes.Add(_tempNode);
-            _nodes.NodeRemoved += (node) => signalNode = node;
+            _nodes.NodeRemoved += node => signalNode = node;
             _nodes.Remove(_tempNode);
             Assert.AreSame(_tempNode, signalNode);
         }
 		
         [Test]
-        public void nodesInitiallySortedInOrderOfAddition()
+        public void NodesInitiallySortedInOrderOfAddition()
         {
             var node1 = new MockNode();
             var node2 = new MockNode();
@@ -162,7 +159,7 @@ namespace Net.RichardLord.AshTests.Core
         }
 		
         [Test]
-        public void swappingAdjacentNodesChangesTheirPositions()
+        public void SwappingAdjacentNodesChangesTheirPositions()
         {
             var node1 = new MockNode();
             var node2 = new MockNode();
@@ -178,41 +175,41 @@ namespace Net.RichardLord.AshTests.Core
             Assert.AreEqual(expected, actual);
         }
 		
-        //[Test]
-        //public function swappingNonAdjacentNodesChangesTheirPositions() : void
-        //{
-        //    var node1 : MockNode = new MockNode();
-        //    var node2 : MockNode = new MockNode();
-        //    var node3 : MockNode = new MockNode();
-        //    var node4 : MockNode = new MockNode();
-        //    var node5 : MockNode = new MockNode();
-        //    nodes.add( node1 );
-        //    nodes.add( node2 );
-        //    nodes.add( node3 );
-        //    nodes.add( node4 );
-        //    nodes.add( node5 );
-        //    nodes.swap( node2, node4 );
-        //    assertThat( nodes, nodeList( node1, node4, node3, node2, node5 ) );
-        //}
-		
-        //[Test]
-        //public function swappingEndNodesChangesTheirPositions() : void
-        //{
-        //    var node1 : MockNode = new MockNode();
-        //    var node2 : MockNode = new MockNode();
-        //    var node3 : MockNode = new MockNode();
-        //    nodes.add( node1 );
-        //    nodes.add( node2 );
-        //    nodes.add( node3 );
-        //    nodes.swap( node1, node3 );
-        //    assertThat( nodes, nodeList( node3, node2, node1 ) );
-        //}
-
-        class MockNode : Node
+        [Test]
+        public void SwappingNonAdjacentNodesChangesTheirPositions()
         {
-	        public Point Point { get; set; }
-            public Matrix Matrix { get; set; }
-        }	
+            var node1 = new MockNode();
+            var node2 = new MockNode();
+            var node3 = new MockNode();
+            var node4 = new MockNode();
+            var node5 = new MockNode();
+            _nodes.Add(node1);
+            _nodes.Add(node2);
+            _nodes.Add(node3);
+            _nodes.Add(node4);
+            _nodes.Add(node5);
+            _nodes.Swap(node2, node4);
+            var expected = new List<Node> { node1, node4, node3, node2, node5 };
+            var actual = new List<Node> { _nodes.Head, _nodes.Head.Next, _nodes.Head.Next.Next, _nodes.Tail.Previous, _nodes.Tail };
+            Assert.AreEqual(expected, actual);
+        }
+		
+        [Test]
+        public void SwappingEndNodesChangesTheirPositions()
+        {
+            var node1 = new MockNode();
+            var node2 = new MockNode();
+            var node3 = new MockNode();
+            _nodes.Add(node1);
+            _nodes.Add(node2);
+            _nodes.Add(node3);
+            _nodes.Swap(node1, node3);
+            var expected = new List<Node> { node3, node2, node1 };
+            var actual = new List<Node> { _nodes.Head, _nodes.Head.Next, _nodes.Tail };
+            Assert.AreEqual(expected, actual);
+        }
+
+        class MockNode : Node {}
     }
 }
 
