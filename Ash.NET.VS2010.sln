@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ash", "Ash\Ash.csproj", "{6720E271-C307-4C63-8696-4971E4D6F1DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AshTests", "AshTests\AshTests.csproj", "{4892266C-ECB9-43A0-A0D7-B43B10FB3135}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6720E271-C307-4C63-8696-4971E4D6F1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6720E271-C307-4C63-8696-4971E4D6F1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6720E271-C307-4C63-8696-4971E4D6F1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6720E271-C307-4C63-8696-4971E4D6F1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4892266C-ECB9-43A0-A0D7-B43B10FB3135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4892266C-ECB9-43A0-A0D7-B43B10FB3135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4892266C-ECB9-43A0-A0D7-B43B10FB3135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4892266C-ECB9-43A0-A0D7-B43B10FB3135}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
